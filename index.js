@@ -2,22 +2,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const http = require ('http');
-const server = http.createServer(app)
+const http = require('http');
+const server = http.createServer(app);
 
-// Middleware para sa data handling
+// Middleware 
 app.use(cors());
 app.use(express.json());
 
 // Main Route para sa Browser 
 app.get('/', (req, res) => {
-    // Check status ng database connection
-    const isConnected = mongoose.connection.readyState === 1;
-    const statusText = isConnected ? "SYSTEM ONLINE" : "CONNECTING TO DATABASE...";
-    const statusColor = isConnected ? "#000" : "#888";
-
     res.send(`
-<!DOCTYPE html>
+        <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -57,20 +52,11 @@ mongoose.connect(mongoURI)
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
-// Import at gamitin ang API routes
-const submitFlowerform = require('./API/submit');
+const submitFlowerform = require('./api/submit'); 
 app.use('/submit', submitFlowerform);
 
-// //--- Start the Server locally ---
-// const PORT = 5000;
-// app.listen(PORT, () => {
-//     console.log(`Server started on http://localhost:${PORT}`);
-
-// });
-
-// Start the server render
+// Start the server for Render
 const PORT = process.env.PORT || 3000;
-
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
