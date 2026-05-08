@@ -68,7 +68,7 @@ app.use('/submit', submitFlowerform);
 
 // });
 
-// Start the server Microsoft Azure
+// Start the server render
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => {
