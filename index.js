@@ -52,7 +52,7 @@ mongoose.connect(mongoURI)
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
-const submitFlowerform = require('./api/submit'); 
+const submitFlowerform = require('./API/submit'); 
 app.use('/submit', submitFlowerform);
 
 // Start the server for Render
