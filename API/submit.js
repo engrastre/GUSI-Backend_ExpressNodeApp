@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const FormModel = require("../models/flower");
+const FormModel = require("../Models/flower");
 
 router.post("/", async (req, res) => {
     try {
