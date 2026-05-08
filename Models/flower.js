@@ -7,7 +7,7 @@ const flowerSchema = new mongoose.Schema({
     flowerType: { 
         type: String, 
         required: true,
-        enum: ['Juliet Rose', 'Royal Lilies', 'French Tulips', 'Golden Sun'] 
+        enum: ['Juliet Rose', 'Royal Lilies', 'French Tulips', 'Golden Sun'],
     },
     date: { type: Date, default: Date.now }
 });
